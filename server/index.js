@@ -7,7 +7,13 @@ const axios = require('axios');
 
 const app = express();
 const port = 3000;
-
+const server = require('http').createServer(app);
+const io = require('socket.io')(server, {
+    cors: {
+      origin: 'http://localhost:5173', // Client's origin
+      methods: ['GET', 'POST']
+    }
+  });
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -136,30 +142,15 @@ app.put('/users/:id', (req, res) => {
 });
 
 // Spotify API credentials
-const CLIENT_ID = 'd109e01fc4bb4ad8836d75db50eedd7c';
-const CLIENT_SECRET = '165536612e534bbfb434d14f956178a4';
+const BEARER_TOKEN = 'BQCc49huu99x4_FcsiaWeqM_0VNvbMX6qlkNLAm9lG1u4NsD9Ydvp9sBVs-UP5rX2jj6bhjH8KRnpBo6QW-Az6u4S8kal7qW2VESjK0F6M-DdSik0pPubzy3D7MlTjrR3tt5ec4JA09WSXzEs-LxHuXzON3XLYTIQYufziugN5VxaQZtA9UgfSK82aPPveQG9TxgbLAsEYJJjCmrbe9r_SPO2-Hqm3Sh1ezdH8cIL2AobgqYa3tCxgvvJ7WvhqHaO_t7QZJ6W6Uj8uXmzrtwwnB5rLy1E-mzO03CoZO35pd9WYPI5EQlT_iYmM7rlppJp7wE2xThFUpGAEflN5B5f44';
 
 // Route to handle search
 app.get('/search', async (req, res) => {
     try {
-        // Get access token using client credentials
-        const accessTokenResponse = await axios.post('https://accounts.spotify.com/api/token', null, {
-            params: {
-                grant_type: 'client_credentials'
-            },
-            auth: {
-                username: CLIENT_ID,
-                password: CLIENT_SECRET
-            }
-        });
-
-        // Extract access token from response
-        const accessToken = accessTokenResponse.data.access_token;
-
-        // Make a GET request to the Spotify API using the obtained access token
+        // Make a GET request to the Spotify API using the bearer token
         const response = await axios.get('https://api.spotify.com/v1/search', {
             headers: {
-                'Authorization': `Bearer ${accessToken}`
+                'Authorization': `Bearer ${BEARER_TOKEN}`
             },
             params: {
                 q: req.query.q,
@@ -176,6 +167,22 @@ app.get('/search', async (req, res) => {
     }
 });
 
-app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+
+io.on('connection', (socket) => {
+    console.log('User connected');
+  
+    socket.on('chat message', (msg) => {
+      io.emit('chat message', msg);
+    });
+  
+    socket.on('disconnect', () => {
+      console.log('User disconnected');
+    });
+  });
+
+
+// express
+
+server.listen(port, () => {
+    console.log(`Socket.IO server is running on http://localhost:${port}`);
 });

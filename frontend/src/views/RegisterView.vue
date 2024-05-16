@@ -1,10 +1,9 @@
 <template>
-  <header class="bg-gray-800 py-4">
+  <header class="bg-violet-700 py-4">
       <div class="container mx-auto px-4 flex items-center justify-between">
         <!-- Logo -->
         <div class="flex items-center">
-          <img src="/logo.png" alt="Logo" class="h-8 w-auto mr-2" />
-          <h1 class="text-white text-2xl font-extrabold">Spotify</h1>
+          <h1 class="text-white text-2xl font-extrabold">TUF Vibin</h1>
         </div>
         <!-- Navigation Links -->
         <nav class="space-x-4">
@@ -12,15 +11,14 @@
       </div>
     </header>
   <div
-    class="min-h-screen flex items-center justify-center bg-gray-700 py-12 px-4 sm:px-6 lg:px-8"
+    class="min-h-screen flex items-center justify-center bg-violet-400 py-12 px-4 sm:px-6 lg:px-8"
   >
     <div class="max-w-md w-full">
-  <div class="items-center bg-zinc-800 p-8 py-12 rounded-md shadow-md space-y-8 w-96">
+  <div class="items-center bg-violet-600 p-8 py-12 rounded-md shadow-md space-y-8 w-96">
     <div class="flex items-center justify-center">
-            <img src="/logo.png" alt="Logo" class="h-8 w-auto mr-2" />
-            <h1 class="text-white text-2xl font-semibold">Spotify</h1>
+            <h1 class="text-white text-2xl font-semibold">TUF VIBIN</h1>
           </div>
-    <h2 class="text-center text-3xl font-extrabold text-white">Start Listening  Now!</h2>
+    <h2 class="text-center text-3xl font-extrabold text-white">Vibe Now!</h2>
     <form @submit.prevent="register" class="space-y-6">
       <div class="rounded-md shadow-sm -space-y-px">
         <!-- Email Input -->
@@ -71,13 +69,13 @@
       <div>
         <button
           type="submit"
-          class="mb-4 w-full flex justify-center py-2 px-4 border border-transparent text-sm font-bold rounded-full text-white bg-green-600 hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          class="mb-4 w-full flex justify-center py-2 px-4 border border-transparent text-sm font-bold rounded-full text-white bg-violet-800 hover:bg-violet-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
         >
           <span class="flex items-center">
             REGISTER
           </span>
         </button>
-        <h1 class="text-white font-semibold text-center">Already on Spotify? <span><RouterLink class="text-green-600 hover:text-green-300" to="/" >Login</RouterLink ></span></h1>
+        <h1 class="text-white font-semibold text-center">Already on Spotify? <span><RouterLink class="text-violet-800 hover:text-violet-900" to="/" >Login</RouterLink ></span></h1>
       </div>
     </form>
   </div>

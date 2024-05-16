@@ -1,26 +1,25 @@
 <template>
   <div>
-    <header class="bg-gray-800 py-4">
+    <header class="bg-violet-700 py-4">
       <div class="container mx-auto px-4 flex items-center justify-between">
         <!-- Logo -->
         <div class="flex items-center">
-          <img src="/logo.png" alt="Logo" class="h-8 w-auto mr-2" />
-          <h1 class="text-white text-2xl font-extrabold">Spotify</h1>
+
+          <h1 class="text-white text-2xl font-extrabold">TUF Vibin</h1>
         </div>
         <!-- Navigation Links -->
         <nav class="space-x-4">
         </nav>
       </div>
     </header>
-    <div class="min-h-screen flex items-center justify-center bg-gray-700 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="min-h-screen flex items-center justify-center bg-violet-400 py-12 px-4 sm:px-6 lg:px-8">
       <div class="max-w-md w-full">
-        <div class="items-center bg-zinc-800 p-8 py-12 rounded-md shadow-md space-y-8 w-96">
+        <div class="items-center bg-violet-600 p-8 py-12 rounded-md shadow-md space-y-8 w-96">
           <div class="flex items-center justify-center">
-            <img src="/logo.png" alt="Logo" class="h-8 w-auto mr-2" />
-            <h1 class="text-white text-2xl font-semibold">Spotify</h1>
+            <h1 class="text-white text-2xl font-semibold">TUF Vibin</h1>
           </div>
           <h2 class="text-center text-2xl font-extrabold text-white">
-            Music for everyone
+            Vibe with Music
           </h2>
           <form @submit.prevent="login" class="space-y-6">
             <!-- Username Input -->
@@ -42,11 +41,11 @@
             <!-- Sign In Button -->
             <div>
               <button type="submit"
-                class=" rounded-full w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium text-white bg-green-500 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                class=" rounded-full w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium text-white bg-violet-800 hover:bg-violet-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                 Sign in
               </button>
             </div>
-            <h1 class="font-bold text-white text-center">Dont have and account? <span><RouterLink class="text-green-400 hover:text-green-600" to="/register">Sign Up</RouterLink></span></h1>
+            <h1 class="font-bold text-white text-center">Dont have and account? <span><RouterLink class="text-violet-800 hover:text-violet-900" to="/register">Sign Up</RouterLink></span></h1>
             <!-- Error Message -->
             <div v-if="errorMessage" class="text-red-500 text-sm">
               {{ errorMessage }}

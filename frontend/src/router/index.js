@@ -9,16 +9,11 @@ const router = createRouter({
       component: () => import('../views/LoginView.vue'),
       meta: { requiresAuth: false } // Does not require authentication
     },
-    {
-      path: '/about',
-      name: 'about',
-      component: () => import('../views/AboutView.vue')
-    },
-    {
-      path: '/chat',
-      name: 'chat',
-      component: () => import('../components/ChatComponent.vue'),
-    },
+    // {
+    //   path: '/chat',
+    //   name: 'chat',
+    //   component: () => import('../components/ChatComponent.vue'),
+    // },
     {
       path: '/register',
       name: 'register',
